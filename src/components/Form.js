@@ -30,7 +30,7 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
       setTodos([...todos, { id: uuidv4(), title: input, completed: false }]);
       setInput("");
     } else {
-      updateTodo(input, editTodo.id, editTodo.completed);
+      updateTodo(input, editTodo.id, editTodo.completed);   
     }
   };
 

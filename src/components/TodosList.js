@@ -1,24 +1,26 @@
 import React from "react";
 
-const TodosList = ({ todos, setTodos, setEditTodo}) => {
+const TodosList = ({ todos, setTodos, setEditTodo }) => {
+
   const myStyle = {
     marginRight: "20px",
   };
-  const handleEdit = ({id}) =>{
-    const findTodo = todos.find((todo)=> todo.id === id);
-    setEditTodo(findTodo);
-  }
 
-const handleComplete = (todo) =>{
+  const handleEdit = ({ id }) => {
+    const findTodo = todos.find((todo) => todo.id === id);
+    setEditTodo(findTodo);
+  };
+
+  const handleComplete = (todo) => {
     setTodos(
-        todos.map((item) =>{
-            if(item.id === todo.id){
-                return {...item , completed : !item.completed}
-            }
-            return item;
-        })
-    )
-}
+      todos.map((item) => {
+        if (item.id === todo.id) {
+          return { ...item, completed: !item.completed };
+        }
+        return item;
+      })
+    );
+  };
   const handleDelete = ({ id }) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -33,10 +35,16 @@ const handleComplete = (todo) =>{
             onChange={(event) => event.preventDefault()}
           />
           <div>
-            <button className="button-complete task-button"  onClick={() => handleComplete(todo)}>
+            <button
+              className="button-complete task-button"
+              onClick={() => handleComplete(todo)}
+            >
               <i className="fa fa-check-circle"></i>
             </button>
-            <button className="button-edit task-button" onClick={() => handleEdit(todo)}>
+            <button
+              className="button-edit task-button"
+              onClick={() => handleEdit(todo)}
+            >
               <i className="fa fa-edit"></i>
             </button>
             <button
